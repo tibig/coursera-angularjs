@@ -1,0 +1,15 @@
+.message.invalid {
+    color: red;
+}
+
+.message.valid {
+    color: green;
+}
+
+#lunch-menu.valid {
+    border-color: green;
+}
+
+#lunch-menu.invalid {
+    border-color: red;
+}
