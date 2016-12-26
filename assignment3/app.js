@@ -21,10 +21,9 @@
 
     function ShoppingListDirectiveController() {
       var list = this;
-      list.items = [];
 
       list.isEmpty = function() {
-          return list.items.length == 0;
+          return list.items && list.items.length == 0;
       }
     }
 
@@ -33,10 +32,14 @@
         var nidCtrl = this;
 
         nidCtrl.filter = function(searchTerm) {
+            if (searchTerm && searchTerm.length > 0) {
             MenuSearchService.getMatchedMenuItems(searchTerm)
                 .then(function(result) {
                     nidCtrl.found = result;
                 });
+            } else {
+                nidCtrl.found = [];
+            }
         }
 
         nidCtrl.removeItem = function(index) {
